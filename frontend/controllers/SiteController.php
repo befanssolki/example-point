@@ -41,12 +41,6 @@ class SiteController extends Controller
                     ],
                 ],
             ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
         ];
     }
 
@@ -74,6 +68,10 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $offices = Office::find()->all();
+        var_dump(count($offices));
+//        die;
+        if (count($offices) == 0)
+            $offices = 0;
         return $this->render('index', ['offices' => $offices]);
     }
 
@@ -108,7 +106,6 @@ class SiteController extends Controller
     public function actionLogout()
     {
         Yii::$app->user->logout();
-
         return $this->goHome();
     }
 

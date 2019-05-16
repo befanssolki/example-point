@@ -10,10 +10,16 @@ $this->title = 'Главная';
   <section class="text-center container">
     <div class="col-md-8 col-xs-12">
       <div class="list-group">
-              <?php foreach ($offices as $office): ?>
+              <?php
+              if ($offices != 0) :
+              foreach ($offices as $office):
+                  ?>
              <!-- <a href="<//?=Url::to(['site/grp'])?>" class="list-group-item list-group-item-action p-4">Номер оффиса: <?= $office->number ?></a>-->
           <?=Html::a('Номер оффиса: '.$office->number, ['site/grp', 'id_office' => $office->id_office], ['class' => 'btn btn-warning m-3'])?>
-              <?php endforeach; ?>
+              <?php
+              endforeach;
+              endif;
+              ?>
       </div>
     </div>
     <div class="col-md-4 col-xs-12">

@@ -48,12 +48,8 @@ AppAsset::register($this);
     } else {
         $menuItems[] = ''
             . Html::beginForm(['/site/logout'], 'post')
-            . Html::a(
-                'Выход (' . Yii::$app->user->identity->username . ')',
-                ['class' => '']
-            )
-            . Html::endForm()
-            . '';
+            . Html::a('Выход (' . Yii::$app->user->identity->username . ')', ['/site/logout'])
+            . Html::endForm();
     }
 
 
